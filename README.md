@@ -318,7 +318,7 @@ This module covers Rust's control flow mechanisms, such as conditionals, loops, 
 
 Structs are custom data types that let you create complex types by grouping together different data types. They are similar to classes in other programming languages.
 
-```
+```rust
 // Define a struct
 struct Person {
     name: String,
@@ -337,7 +337,7 @@ fn main() {
 ### Enums
 Enums allow you to define a type that can be one of several variants. This is useful for representing data that can take on a limited set of values.
 
-```
+```rust
 // Define an enum
 enum Direction {
     Up,
@@ -364,7 +364,7 @@ fn main() {
 ## 2. Option<T>
 The Option<T> type is used to represent a value that may or may not be present. It is a powerful way to handle nullable values.
 
-```
+```rust
 // Define a function that returns an Option
 fn find_item(index: usize) -> Option<&'static str> {
     let items = ["apple", "banana", "cherry"];
@@ -385,7 +385,7 @@ fn main() {
 ## 3. Arrays
 Arrays in Rust are fixed-size collections of elements of the same type. The size of an array is determined at compile time.
 
-```
+```rust
 // Define an array
 fn main() {
     let numbers: [i32; 5] = [1, 2, 3, 4, 5];
@@ -394,7 +394,7 @@ fn main() {
 ```
 ## 4. Vectors (Variable Length)
 Vectors are similar to arrays, but they can change size at runtime. They are more flexible than arrays and are a common choice for collections of data.
-```
+```rust 
 // Define a vector
 fn main() {
     let mut numbers: Vec<i32> = Vec::new();
