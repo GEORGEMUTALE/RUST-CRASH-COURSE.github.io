@@ -74,3 +74,116 @@ For this course, we recommend using Visual Studio Code as your code editor. Here
    - [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb): A debugger for Rust.
 
 After installing these extensions, you'll be ready to develop, debug, and run Rust code directly within VS Code.
+
+# Module 2: Rust Data Types and Memory
+
+## Data Types in Rust
+
+In Rust, every value has a data type. The data type tells Rust what kind of data is being used. Some common data types are:
+
+- **Integers**: Whole numbers like `5`, `-3`. Examples:
+  ```rust
+  let x: i32 = 10; // 32-bit integer
+  let y: u8 = 255; // Unsigned 8-bit integer (positive only)
+  ```
+
+- **Floating Points**: Numbers with decimals like `4.2`. Examples:
+  ```rust
+  let z: f64 = 3.14; // 64-bit floating point
+  ```
+
+- **Booleans**: True or false values. Example:
+  ```rust
+  let is_active: bool = true;
+  ```
+
+- **Characters**: Letters or symbols like `a` or `#`. Example:
+  ```rust
+  let letter: char = 'A';
+  ```
+
+## Determining Allocated Memory
+
+Different types use different amounts of memory. For example:
+- `i32` uses 32 bits (4 bytes).
+- `f64` uses 64 bits (8 bytes).
+
+You can check the size of any type using this code:
+```rust
+println!("Size of i32: {} bytes", std::mem::size_of::<i32>());
+```
+
+## Stack and Heap
+
+Rust stores variables in two places: the **stack** and the **heap**.
+
+- **Stack**: Fast, but stores small, simple data types (like integers).
+- **Heap**: Slower, but stores larger data like strings.
+
+Example:
+```rust
+let x = 5; // Stored on the stack
+let s = String::from("Hello"); // Stored on the heap
+```
+
+## Variable Scope
+
+Variables in Rust have a **scope**, meaning they only exist in certain parts of the program. When a variable goes out of scope, it’s removed from memory.
+
+Example:
+```rust
+{
+    let x = 5; // x is in scope
+    println!("{}", x);
+} // x goes out of scope here
+```
+
+## Shadowing
+
+**Shadowing** lets you declare a variable with the same name, but change its value or type.
+
+Example:
+```rust
+let x = 5;
+let x = x + 1; // x is now 6
+let x = "Hello"; // x is now a string
+```
+
+## Arithmetic and Conditional Operators
+
+Rust supports basic math operations:
+- `+` (Addition)
+- `-` (Subtraction)
+- `*` (Multiplication)
+- `/` (Division)
+- `%` (Modulus)
+
+Example:
+```rust
+let sum = 5 + 10;
+let product = 4 * 3;
+let remainder = 10 % 3;
+```
+
+### Conditional Operators
+
+Conditional operators allow you to compare values:
+- `==` (Equal to)
+- `!=` (Not equal to)
+- `>` (Greater than)
+- `<` (Less than)
+
+Example:
+```rust
+let x = 5;
+if x > 3 {
+    println!("x is greater than 3");
+} else {
+    println!("x is 3 or less");
+}
+```
+
+---
+
+This module explains the basic data types and memory handling in Rust. Understanding these topics will help you write safe and efficient Rust code!
+
