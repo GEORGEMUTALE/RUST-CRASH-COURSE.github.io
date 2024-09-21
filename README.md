@@ -187,3 +187,128 @@ if x > 3 {
 
 This module explains the basic data types and memory handling in Rust. Understanding these topics will help you write safe and efficient Rust code!
 
+# Module 3: Control Flow in Rust
+
+## Conditionals
+
+Conditionals in Rust allow you to make decisions in your code using `if`, `else if`, and `else`.
+
+Example:
+```rust
+let x = 5;
+
+if x > 10 {
+    println!("x is greater than 10");
+} else if x == 5 {
+    println!("x is equal to 5");
+} else {
+    println!("x is less than 10");
+}
+```
+
+### Using `if` in a `let` Statement
+
+You can also use `if` in a `let` statement to assign a value based on a condition:
+```rust
+let number = if x > 5 { 10 } else { 0 };
+println!("The value is {}", number);
+```
+
+## Loops
+
+Rust has different kinds of loops: `loop`, `while`, and `for`.
+
+### `loop`
+
+The `loop` keyword creates an infinite loop until you explicitly tell it to stop using `break`.
+
+Example:
+```rust
+let mut counter = 0;
+
+loop {
+    counter += 1;
+    if counter == 5 {
+        break; // Exit the loop when counter is 5
+    }
+    println!("Counter is at {}", counter);
+}
+```
+
+### `while` Loop
+
+A `while` loop will run as long as a condition is true.
+
+Example:
+```rust
+let mut number = 3;
+
+while number != 0 {
+    println!("{}!", number);
+    number -= 1;
+}
+println!("Liftoff!");
+```
+
+### `for` Loop
+
+A `for` loop is useful for iterating over a collection of values.
+
+Example:
+```rust
+let a = [10, 20, 30, 40, 50];
+
+for element in a {
+    println!("The value is: {}", element);
+}
+```
+
+## Pattern Matching with `match`
+
+The `match` expression is a powerful tool in Rust that allows you to compare a value against a set of patterns and execute code based on the pattern that matches.
+
+Example:
+```rust
+let number = 3;
+
+match number {
+    1 => println!("One"),
+    2 => println!("Two"),
+    3 => println!("Three"),
+    _ => println!("Something else"),
+}
+```
+
+In this example, the `_` pattern is a catch-all, meaning it will match any value not explicitly matched by the other arms.
+
+### Matching Multiple Values
+
+You can also match multiple patterns with a single arm:
+
+```rust
+let number = 1;
+
+match number {
+    1 | 2 => println!("One or Two"),
+    _ => println!("Something else"),
+}
+```
+
+### Matching Ranges
+
+You can match a range of values:
+
+```rust
+let number = 6;
+
+match number {
+    1..=5 => println!("Between 1 and 5"),
+    _ => println!("Outside the range"),
+}
+```
+
+---
+
+This module covers Rust's control flow mechanisms, such as conditionals, loops, and pattern matching using `match`. These tools are essential for handling logic in your programs.
+
+
