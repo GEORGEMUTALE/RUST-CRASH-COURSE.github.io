@@ -310,5 +310,102 @@ match number {
 ---
 
 This module covers Rust's control flow mechanisms, such as conditionals, loops, and pattern matching using `match`. These tools are essential for handling logic in your programs.
+# Module 4: Advanced Data Types in Rust
 
+## 1. Structs and Enums
 
+### Structs
+
+Structs are custom data types that let you create complex types by grouping together different data types. They are similar to classes in other programming languages.
+
+```
+// Define a struct
+struct Person {
+    name: String,
+    age: u32,
+}
+
+// Create an instance of the struct
+fn main() {
+    let person = Person {
+        name: String::from("Alice"),
+        age: 30,
+    };
+    println!("Name: {}, Age: {}", person.name, person.age);
+}
+```
+### Enums
+Enums allow you to define a type that can be one of several variants. This is useful for representing data that can take on a limited set of values.
+
+```
+// Define an enum
+enum Direction {
+    Up,
+    Down,
+    Left,
+    Right,
+}
+
+// Use the enum
+fn move_player(direction: Direction) {
+    match direction {
+        Direction::Up => println!("Moving up!"),
+        Direction::Down => println!("Moving down!"),
+        Direction::Left => println!("Moving left!"),
+        Direction::Right => println!("Moving right!"),
+    }
+}
+
+fn main() {
+    let direction = Direction::Up;
+    move_player(direction);
+}
+```
+## 2. Option<T>
+The Option<T> type is used to represent a value that may or may not be present. It is a powerful way to handle nullable values.
+
+```
+// Define a function that returns an Option
+fn find_item(index: usize) -> Option<&'static str> {
+    let items = ["apple", "banana", "cherry"];
+    if index < items.len() {
+        Some(items[index])
+    } else {
+        None
+    }
+}
+
+fn main() {
+    match find_item(1) {
+        Some(item) => println!("Found: {}", item),
+        None => println!("Item not found."),
+    }
+}
+```
+## 3. Arrays
+Arrays in Rust are fixed-size collections of elements of the same type. The size of an array is determined at compile time.
+
+```
+// Define an array
+fn main() {
+    let numbers: [i32; 5] = [1, 2, 3, 4, 5];
+    println!("First number: {}", numbers[0]);
+}
+```
+## 4. Vectors (Variable Length)
+Vectors are similar to arrays, but they can change size at runtime. They are more flexible than arrays and are a common choice for collections of data.
+```
+// Define a vector
+fn main() {
+    let mut numbers: Vec<i32> = Vec::new();
+    numbers.push(1);
+    numbers.push(2);
+    numbers.push(3);
+    
+    for number in &numbers {
+        println!("{}", number);
+    }
+}
+```
+Conclusion
+In this module, we've covered advanced data types in Rust, including `structs`, `enums`, `Option<T>`, `arrays`, and `vectors`. Understanding these concepts is crucial for effective Rust programming.
