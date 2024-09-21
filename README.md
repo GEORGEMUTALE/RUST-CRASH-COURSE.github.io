@@ -409,3 +409,81 @@ fn main() {
 ```
 Conclusion
 In this module, we've covered advanced data types in Rust, including `structs`, `enums`, `Option<T>`, `arrays`, and `vectors`. Understanding these concepts is crucial for effective Rust programming.
+# Module 5: Working with Strings and Functions
+
+## 1. String Slicing
+
+String slicing allows you to reference a part of a string. This is useful when you only need a portion of the string.
+
+```rust
+fn main() {
+    let my_string = String::from("Hello, Rust!");
+    let slice = &my_string[0..5]; // Slicing the first 5 characters
+    println!("Slice: {}", slice); // Output: Hello
+}
+```
+## 2. String Manipulation
+You can change and manipulate strings in various ways, like adding or removing characters.
+
+```rust
+fn main() {
+    let mut my_string = String::from("Hello");
+    my_string.push_str(", Rust!"); // Adding text
+    println!("{}", my_string); // Output: Hello, Rust!
+
+    let new_string = my_string.replace("Rust", "World"); // Replacing text
+    println!("{}", new_string); // Output: Hello, World!
+}
+```
+## 3. Tuples and Structs
+### Tuples
+Tuples are a way to group different types of data together. They can hold a fixed number of values.
+
+```rust
+Copy code
+fn main() {
+    let my_tuple = (10, 20.5, "Hello");
+    println!("First: {}, Second: {}, Third: {}", my_tuple.0, my_tuple.1, my_tuple.2);
+}
+````
+### Structs
+Structs, as mentioned in Module 4, are custom data types that allow you to group related data together.
+
+```rust
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+fn main() {
+    let p = Point { x: 10, y: 20 };
+    println!("Point is at ({}, {})", p.x, p.y);
+}
+```
+
+4. Functions and Closures
+### Functions
+Functions are blocks of code that perform a specific task. You can reuse them throughout your program.
+
+```rust
+fn greet(name: &str) {
+    println!("Hello, {}!", name);
+}
+
+fn main() {
+    greet("Alice");
+}
+```
+### Closures
+Closures are similar to functions but can capture variables from their surrounding environment.
+
+```rust
+fn main() {
+    let x = 5;
+    let add = |y| y + x; // Closure that captures `x`
+    
+    println!("5 + 5 = {}", add(5)); // Output: 10
+}
+```
+Conclusion
+In this module, we've covered string slicing, string manipulation, tuples, structs, functions, and closures. These concepts are fundamental for writing effective Rust programs.
