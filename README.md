@@ -487,3 +487,75 @@ fn main() {
 ```
 Conclusion
 In this module, we've covered string slicing, string manipulation, tuples, structs, functions, and closures. These concepts are fundamental for writing effective Rust programs.
+
+# Module 6: Ownership, Borrowing, and Crates
+
+## 1. Ownership
+
+Ownership is a key feature of Rust that ensures memory safety. Every value in Rust has a single owner, which is the variable that holds it. When the owner goes out of scope, the value is dropped and the memory is freed.
+
+```rust
+fn main() {
+    let s = String::from("Hello"); // `s` owns the string
+    println!("{}", s); // Use the string
+    // `s` goes out of scope here, and the memory is freed
+}
+```
+## 2. Borrowing
+Borrowing allows you to reference a value without taking ownership of it. This is done using references. You can borrow values as immutable or mutable references.
+
+Immutable Borrowing
+```rust
+fn main() {
+    let s = String::from("Hello");
+    let r = &s; // Immutable borrow
+    println!("{}", r); // Use the borrowed value
+}
+Mutable Borrowing
+You can have one mutable reference or multiple immutable references, but not both at the same time.
+
+```rust
+fn main() {
+    let mut s = String::from("Hello");
+    let r = &mut s; // Mutable borrow
+    r.push_str(", Rust!"); // Modify the borrowed value
+    println!("{}", r); // Output: Hello, Rust!
+}
+```
+## 3. Crates
+Crates are packages of Rust code. You can create your own crates or use existing ones from the Rust community.
+
+Creating a Crate
+To create a new crate, use Cargo, Rust’s package manager and build system. In your terminal, run:
+
+```bash
+cargo new my_crate
+cd my_crate
+```
+This will create a new directory with a basic project structure.
+
+### Downloading Crates
+To use external crates, you need to add them to your Cargo.toml file. For example, to use the rand crate for random number generation, add this line under [dependencies]:
+
+```toml
+[dependencies]
+rand = "0.8"  # Check for the latest version
+```
+Then, run:
+
+```bash
+cargo build
+```
+### Using Crates
+Once you have added a crate, you can use it in your code. For example:
+
+```rust
+use rand::Rng; // Import the `Rng` trait
+
+fn main() {
+    let random_number = rand::thread_rng().gen_range(1..101); // Generate a random number
+    println!("Random number: {}", random_number);
+}
+```
+## Conclusion
+In this module, we've explored ownership, borrowing, and crates in Rust. Understanding these concepts is essential for managing memory safely and using external libraries effectively.
