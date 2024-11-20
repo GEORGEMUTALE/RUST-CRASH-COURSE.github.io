@@ -336,6 +336,7 @@ fn main() {
 ```
 ### Enums
 Enums allow you to define a type that can be one of several variants. This is useful for representing data that can take on a limited set of values.
+- [More to Know](https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html)
 
 ```rust
 // Define an enum
