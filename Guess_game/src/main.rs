@@ -63,7 +63,6 @@ fn main() {
         println!("Please input your guess.");
 
         let mut guess = String::new();
-
         io::stdin()
             .read_line(&mut guess)
             .expect("Failed to read line");
@@ -87,4 +86,4 @@ fn main() {
         } 
     }
 }
-// where the user we have to know the number of trials they used to get to the secret number
+// go implement the if and elseif 
